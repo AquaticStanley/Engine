@@ -7,7 +7,7 @@ void World::gameloop()
 	double lag = 0.0;
 
 	//Object for graphic manipulation
-	Graphics* graphics;
+	Graphics* graphics= new Graphics();
 
 	while (true)
 	{
@@ -17,34 +17,49 @@ void World::gameloop()
 
 		processInput();
 
-		for (int i = 0; i < entities.size(); i++)
-		{
-
-		}
-
 		while (lag >= MS_PER_UPDATE)
 		{
-			update();
+			updatePhysics();
 			lag -= MS_PER_UPDATE;
 		}
 
-		render(lag/MS_PER_UPDATE);
-
-		//Stuff
+		render(lag/MS_PER_UPDATE, *graphics);
 	}
 }
 
 void World::processInput()
 {
-
+	//Update inputs of each entity
+	for (unsigned int i = 0; i < entities.size(); i++)
+	{
+		entities.at(i).updateInput();
+	}
 }
 
-void World::render(double frameProgress)
+void World::render(double frameProgress, Graphics graphics)
 {
-
+	//Update graphics of each entity
+	for (unsigned int i = 0; i < entities.size(); i++)
+	{
+		entities.at(i).updateGraphics(*this, graphics, frameProgress);
+	}
 }
 
-void World::update()
+void World::updatePhysics()
 {
+	//Update physics of each entity
+	for (unsigned int i = 0; i < entities.size(); i++)
+	{
+		entities.at(i).updatePhysics(*this);
+	}
 
+	//Remove dead entities from array
+	for (unsigned int i = 0; i < entities.size(); i++)
+	{
+		if (entities.at(i).toBeRemoved)
+		{
+			entities.erase(entities.begin() + i);
+			i--;
+		}
+	}
 }

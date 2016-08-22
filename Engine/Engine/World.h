@@ -5,7 +5,7 @@
 #include <SFML\System\Clock.hpp>
 #include "Graphics.h"
 #include "GameObject.h"
-#include <list>
+#include <vector>
 
 //Constants
 const int MS_PER_UPDATE = 10;
@@ -20,12 +20,12 @@ public:
 
 	void processInput();
 
-	void update();
+	void updatePhysics();
 
-	void render(double frameProgress);
+	void render(double frameProgress, Graphics graphics);
 
 private:
-	std::list<GameObject> entities;
+	std::vector<GameObject> entities;
 };
 
 #endif

@@ -21,7 +21,11 @@ public:
 			   GraphicsComponent* graphics)
 		: input_(input), physics_(physics), graphics_(graphics){}
 
-	void update(World& world, Graphics& graphics);
+	void updateInput();
+
+	void updatePhysics(World& world);
+
+	void updateGraphics(World& world, Graphics& graphics, double frameProgress);
 
 private:
 	InputComponent* input_;
