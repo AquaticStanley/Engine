@@ -8,19 +8,3 @@ void Execute()
 
 	world.gameloop();
 }
-
-void processInput()
-{
-
-}
-
-void update()
-{
-
-}
-
-void render()
-{
-
-}
-
