@@ -32,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="Blockman.h" />
     <ClInclude Include="Dimensions.h" />
+    <ClInclude Include="EntityTypes.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectFactory.h" />

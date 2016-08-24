@@ -10,11 +10,16 @@
 #include "PhysicsComponent.h"
 #include "GameObject.h"
 #include "World.h"
+#include "EntityTypes.h"
 
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 public:
     virtual void update(GameObject& object, World& world);
+
+    bool isOnGround;
+
+    PlayerPhysicsComponent() : isOnGround(false) {}
 };
 
 
@@ -22,6 +27,11 @@ class PlayerGraphicsComponent : public GraphicsComponent
 {
 public:
     virtual void update(GameObject& object, Graphics& graphics);
+
+    PlayerGraphicsComponent(PlayerPhysicsComponent* physics) : physics_(physics) {}
+
+private:
+    PlayerPhysicsComponent* physics_;
 };
 
 

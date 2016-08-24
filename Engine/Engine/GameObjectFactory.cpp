@@ -2,7 +2,8 @@
 
 GameObject* GameObjectFactory::createPlayer(sf::Vector2i position)
 {
-    return new GameObject(new PlayerInputComponent, new PlayerPhysicsComponent, new PlayerGraphicsComponent, position, sf::Vector2i(PLAYER_WIDTH, PLAYER_HEIGHT));
+    PlayerPhysicsComponent* physics = new PlayerPhysicsComponent;
+    return new GameObject(new PlayerInputComponent, physics, new PlayerGraphicsComponent(physics), position, sf::Vector2i(PLAYER_WIDTH, PLAYER_HEIGHT), EntityType::Player);
 }
 
 GameObject* GameObjectFactory::createBlockman(sf::Vector2i position)
