@@ -28,6 +28,8 @@ public:
 
 	void render(double frameProgress, Graphics graphics);
 
+	void resolveCollision(sf::Vector2i hitbox, sf::Vector2i& position, sf::Vector2i& velocity);
+
 private:
 	std::vector<GameObject> entities;
 };

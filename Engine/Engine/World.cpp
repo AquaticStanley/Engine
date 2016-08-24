@@ -45,6 +45,15 @@ void World::render(double frameProgress, Graphics graphics)
 	}
 }
 
+void World::resolveCollision(sf::Vector2i hitbox, sf::Vector2i& position, sf::Vector2i& velocity)
+{
+	//Check if space is occupied
+	for (unsigned int i = 0; i < entities.size(); i++)
+	{
+
+	}
+}
+
 void World::updatePhysics()
 {
 	//Update physics of each entity

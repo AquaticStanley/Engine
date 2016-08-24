@@ -9,16 +9,12 @@
 #include "InputComponent.h"
 #include "PhysicsComponent.h"
 #include "GameObject.h"
+#include "World.h"
 
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 public:
 	virtual void update(GameObject& object, World& world);
-
-	PlayerPhysicsComponent() : hitbox(30, 30) {}
-
-private:
-	Dimensions hitbox;
 };
 
 
