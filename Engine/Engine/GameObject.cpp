@@ -4,15 +4,15 @@
 
 void GameObject::updateInput()
 {
-	input_->update(*this);
+    input_->update(*this);
 }
 
 void GameObject::updatePhysics(World & world)
 {
-	physics_->update(*this, world);
+    physics_->update(*this, world);
 }
 
 void GameObject::updateGraphics(World & world, Graphics & graphics, double frameProgress)
 {
-	graphics_->update(*this, graphics);
+    graphics_->update(*this, graphics);
 }

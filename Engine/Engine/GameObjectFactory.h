@@ -19,12 +19,12 @@ const int BLOCKMAN_WIDTH = 30;
 class GameObjectFactory
 {
 public:
-	//Factory Methods
-	GameObject* createPlayer(sf::Vector2i position);
+    //Factory Methods
+    GameObject* createPlayer(sf::Vector2i position);
 
-	GameObject* createBlockman(sf::Vector2i position);
+    GameObject* createBlockman(sf::Vector2i position);
 
-	//GameObject* createPlatform(sf::Vector2i position);
+    //GameObject* createPlatform(sf::Vector2i position);
 };
 
 #endif

@@ -14,24 +14,24 @@
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 public:
-	virtual void update(GameObject& object, World& world);
+    virtual void update(GameObject& object, World& world);
 };
 
 
 class PlayerGraphicsComponent : public GraphicsComponent
 {
 public:
-	virtual void update(GameObject& object, Graphics& graphics);
+    virtual void update(GameObject& object, Graphics& graphics);
 };
 
 
 class PlayerInputComponent : public InputComponent
 {
 public:
-	virtual void update(GameObject& object);
+    virtual void update(GameObject& object);
 
 private:
-	const int WALK_ACCELERATION = 1;
+    const int WALK_ACCELERATION = 1;
 };
 
 #endif

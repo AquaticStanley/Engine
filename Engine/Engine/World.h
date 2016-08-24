@@ -20,18 +20,18 @@ const int WORLD_Y_SPEED_LIMIT = 30;
 class World
 {
 public:
-	void gameloop();
+    void gameloop();
 
-	void processInput();
+    void processInput();
 
-	void updatePhysics();
+    void updatePhysics();
 
-	void render(double frameProgress, Graphics graphics);
+    void render(double frameProgress, Graphics graphics);
 
-	void resolveCollision(sf::Vector2i hitbox, sf::Vector2i& position, sf::Vector2i& velocity);
+    void resolveCollision(sf::Vector2i hitbox, sf::Vector2i& position, sf::Vector2i& velocity);
 
 private:
-	std::vector<GameObject> entities;
+    std::vector<GameObject> entities;
 };
 
 #endif

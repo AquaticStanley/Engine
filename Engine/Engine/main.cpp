@@ -3,7 +3,7 @@
 
 int main()
 {
-	Execute();
+    Execute();
 
-	return 0;
+    return 0;
 }

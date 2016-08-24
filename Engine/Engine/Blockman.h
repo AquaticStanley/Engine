@@ -11,21 +11,21 @@
 class BlockmanPhysicsComponent : public PhysicsComponent
 {
 public:
-	virtual void update(GameObject& object, World& world);
+    virtual void update(GameObject& object, World& world);
 };
 
 
 class BlockmanGraphicsComponent : public GraphicsComponent
 {
 public:
-	virtual void update(GameObject& object, Graphics& graphics);
+    virtual void update(GameObject& object, Graphics& graphics);
 };
 
 
 class BlockmanInputComponent : public InputComponent
 {
 public:
-	virtual void update(GameObject& object);
+    virtual void update(GameObject& object);
 };
 
 #endif
