@@ -12,6 +12,10 @@ const int MS_PER_UPDATE = 10;
 
 const int MAX_ENTITIES = 3000;
 
+const int WORLD_X_SPEED_LIMIT = 30;
+
+const int WORLD_Y_SPEED_LIMIT = 30;
+
 //Class definition
 class World
 {

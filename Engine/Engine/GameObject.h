@@ -12,14 +12,19 @@ class World;
 class GameObject
 {
 public:
-	sf::Vector2f position;
-	sf::Vector2f velocity;
-	bool toBeRemoved = false;
+	sf::Vector2f position_;
+	sf::Vector2f velocity_;
+
+	//Variable describing if object should be removed on next frame
+	bool toBeRemoved;
 
 	GameObject(InputComponent* input, 
 			   PhysicsComponent* physics, 
-			   GraphicsComponent* graphics)
-		: input_(input), physics_(physics), graphics_(graphics){}
+			   GraphicsComponent* graphics,
+			   sf::Vector2f position)
+		: input_(input), physics_(physics), graphics_(graphics), position_(position) {
+		toBeRemoved = false;
+	}
 
 	void updateInput();
 

@@ -1,6 +1,9 @@
 #ifndef PHYSICSCOMPONENT_H
 #define PHYSICSCOMPONENT_H
 
+//Dependencies
+#include "Dimensions.h"
+
 class GameObject;
 class World;
 
