@@ -16,6 +16,8 @@ public:
 
     void draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color);
 
+    void translatePosition(sf::Vector2f& position, sf::RenderWindow * window);
+
 private:
     sf::RenderWindow* window_;
 };

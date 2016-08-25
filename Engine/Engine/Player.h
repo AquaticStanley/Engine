@@ -18,7 +18,7 @@ public:
     virtual void update(GameObject& object);
 
 private:
-    const int WALK_ACCELERATION = 5;
+    const int WALK_ACCELERATION = 1;
     const int IDLE_X_ACCELERATION = 1;
 };
 

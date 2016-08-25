@@ -41,6 +41,10 @@ void PlayerPhysicsComponent::update(GameObject& object, World& world)
     {
         object.velocity_.y += WORLD_GRAVITY_ACCELERATION;
     }
+    else
+    {
+        object.velocity_.y = 0;
+    }
 
     //Cap x and y movement speeds from world speed limits
     if (abs(object.velocity_.x) >= WORLD_X_SPEED_LIMIT)

@@ -9,8 +9,8 @@
 #include "Platform.h"
 
 //Big list of constants for dimensions and characteristics
-const int PLAYER_HEIGHT = 60;
-const int PLAYER_WIDTH = 30;
+const int PLAYER_HEIGHT = 15;
+const int PLAYER_WIDTH = 10;
 
 const int BLOCKMAN_HEIGHT = 60;
 const int BLOCKMAN_WIDTH = 30;

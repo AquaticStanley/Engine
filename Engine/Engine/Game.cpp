@@ -24,12 +24,26 @@ void Execute()
 
     //Create Test Level Objects
     GameObjectFactory gameObjectFactory;
-
-    sf::Vector2f startingPosition1 = sf::Vector2f(0, 600);
-    GameObject* object = gameObjectFactory.createPlayer(startingPosition1);
-    
-
     std::vector<GameObject> gameObjects;
+
+    //Create Player
+    sf::Vector2f startingPosition1 = sf::Vector2f(300, 600);
+    GameObject* object = gameObjectFactory.createPlayer(startingPosition1);
+
+    gameObjects.push_back(*object);
+
+    //Create Platform
+    sf::Vector2f startingPosition2 = sf::Vector2f(300, 500);
+    sf::Vector2f hitBox1 = sf::Vector2f(10, 3);
+    object = gameObjectFactory.createPlatform(startingPosition2, hitBox1);
+
+    gameObjects.push_back(*object);
+
+    //Create wall
+    sf::Vector2f startingPosition3 = sf::Vector2f(100, 500);
+    sf::Vector2f hitBox2 = sf::Vector2f(3, 20);
+    object = gameObjectFactory.createPlatform(startingPosition3, hitBox2);
+
     gameObjects.push_back(*object);
 
     //Variables for dealing with game objects
@@ -64,12 +78,16 @@ void Execute()
             lag -= MS_PER_UPDATE;
         }
 
-
         window.clear(sf::Color::Black);
         world.render(lag / MS_PER_UPDATE, *graphics);
         window.display();
 
-        std::cout << world.entities[0].velocity_.x << std::endl;
+        //Display information about certain physics entity
+        std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
+        std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
+        std::cout << "Object 2 Position: (" << world.entities[1].position_.x << ", " << world.entities[1].position_.y << ")\t";
+        std::cout << "Object 2 Velocity: (" << world.entities[1].velocity_.x << ", " << world.entities[1].velocity_.y << ")\n\n";
+        std::cout << std::endl;
 
         //i++;
     }
