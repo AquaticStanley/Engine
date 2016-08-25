@@ -27,14 +27,10 @@ void Execute()
 
     sf::Vector2f startingPosition1 = sf::Vector2f(0, 600);
     GameObject* object = gameObjectFactory.createPlayer(startingPosition1);
-    //
-    //sf::Vector2f startingPosition2 = sf::Vector2f(0, 596);
-    //sf::Vector2f platformHitbox = sf::Vector2f(300, 2);
-    //GameObject* object2 = gameObjectFactory.createPlatform(startingPosition2, platformHitbox);
+    
 
     std::vector<GameObject> gameObjects;
     gameObjects.push_back(*object);
-    //gameObjects.push_back(*object2);
 
     //Variables for dealing with game objects
     World world(gameObjects);
@@ -51,16 +47,6 @@ void Execute()
             }
         }
 
-        ////Measure FPS
-        //static sf::Clock fpsTimer;
-        //static int i = 0;
-        //if (fpsTimer.getElapsedTime() >= sf::seconds(1))
-        //{
-        //    std::cout << i << std::endl;
-        //    i = 0;
-        //    fpsTimer.restart();
-        //}
-
         //Get delta time
         sf::Time dt = deltaClock.restart();
         lag += dt.asMilliseconds();
@@ -73,11 +59,12 @@ void Execute()
             lag -= MS_PER_UPDATE;
         }
 
-        world.render(lag / MS_PER_UPDATE, *graphics);
 
+        window.clear(sf::Color::Black);
+        world.render(lag / MS_PER_UPDATE, *graphics);
         window.display();
 
-        std::cout << world.entities[0].velocity_.y << std::endl;
+        std::cout << world.entities[0].velocity_.x << std::endl;
 
         //i++;
     }
