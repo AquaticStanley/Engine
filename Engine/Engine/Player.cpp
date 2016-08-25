@@ -29,6 +29,12 @@ void PlayerInputComponent::update(GameObject & object)
             object.velocity_.x = 0;
         }
     }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && physics_->isOnGround)
+    {
+        object.velocity_.y += JUMP_VELOCITY;
+        physics_->isOnGround = false;
+    }
 }
 
 void PlayerPhysicsComponent::update(GameObject& object, World& world)

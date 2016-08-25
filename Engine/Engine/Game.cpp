@@ -22,29 +22,9 @@ void Execute()
     sf::RenderWindow* windowPointer = &window;
     Graphics* graphics = new Graphics(windowPointer);
 
-    //Create Test Level Objects
-    GameObjectFactory gameObjectFactory;
+    //Create Test Level
     std::vector<GameObject> gameObjects;
-
-    //Create Player
-    sf::Vector2f startingPosition1 = sf::Vector2f(300, 600);
-    GameObject* object = gameObjectFactory.createPlayer(startingPosition1);
-
-    gameObjects.push_back(*object);
-
-    //Create Platform
-    sf::Vector2f startingPosition2 = sf::Vector2f(300, 500);
-    sf::Vector2f hitBox1 = sf::Vector2f(10, 3);
-    object = gameObjectFactory.createPlatform(startingPosition2, hitBox1);
-
-    gameObjects.push_back(*object);
-
-    //Create wall
-    sf::Vector2f startingPosition3 = sf::Vector2f(100, 500);
-    sf::Vector2f hitBox2 = sf::Vector2f(3, 20);
-    object = gameObjectFactory.createPlatform(startingPosition3, hitBox2);
-
-    gameObjects.push_back(*object);
+    CreateTestLevel(gameObjects);
 
     //Variables for dealing with game objects
     World world(gameObjects);
@@ -91,5 +71,31 @@ void Execute()
 
         //i++;
     }
+}
+
+void CreateTestLevel(std::vector<GameObject>& gameObjects)
+{
+    //Create Test Level Objects
+    GameObjectFactory gameObjectFactory;
+
+    //Create Player
+    sf::Vector2f startingPosition1 = sf::Vector2f(300, 600);
+    GameObject* object = gameObjectFactory.createPlayer(startingPosition1);
+
+    gameObjects.push_back(*object);
+
+    //Create Platform
+    sf::Vector2f startingPosition2 = sf::Vector2f(300, 500);
+    sf::Vector2f hitBox1 = sf::Vector2f(10, 3);
+    object = gameObjectFactory.createPlatform(startingPosition2, hitBox1);
+
+    gameObjects.push_back(*object);
+
+    //Create wall
+    sf::Vector2f startingPosition3 = sf::Vector2f(100, 200);
+    sf::Vector2f hitBox2 = sf::Vector2f(3, 600);
+    object = gameObjectFactory.createPlatform(startingPosition3, hitBox2);
+
+    gameObjects.push_back(*object);
 }
 

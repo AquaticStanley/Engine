@@ -24,6 +24,8 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
 {
     sf::Vector2f previousPosition = position - velocity;
 
+    isOnGround = false;
+
     //Check if space is occupied
     for (unsigned int i = 0; i < entities.size(); i++)
     {
@@ -53,8 +55,6 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
 
                     //Stop pushing into object
                     velocity.y = 0;
-
-                    isOnGround = true;
 
                 }
                 else if (previousPosition.y + hitbox.y < entities[i].position_.y)
@@ -100,52 +100,13 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                         velocity.x = 0;
                     }
                 }
-
-
-                //if (sameYLevel)
-                //{
-                //    //Specified object's right side is clipping into left side of foreign object
-                //    if (!(position.x + hitbox.x < entities[i].position_.x))
-                //    {
-                //        //Move to the left;
-                //        position.x--;
-
-                //        //Stop pushing into object
-                //        velocity.x = 0;
-                //    }
-                //    //Specified object's left side is clipping into right side of foreign object
-                //    else if (!(position.x > entities[i].position_.x + entities[i].hitbox_.x))
-                //    {
-                //        //Move to the right
-                //        position.x++;
-
-                //        //Stop pushing into object
-                //        velocity.x = 0;
-                //    }
-                //}
-
-                //if (sameXLevel)
-                //{
-                //    //Specified object's top side is clipping into bottom side of foreign object
-                //    if (!(position.y + hitbox.y < entities[i].position_.y))
-                //    {
-                //        //Stop pushing into object
-                //        velocity.y = 0;
-                //    }
-                //    //Specified object's bottom side is clipping into top side of foreign object
-                //    else if (!(position.y > entities[i].position_.y + entities[i].hitbox_.y))
-                //    {
-                //        //Move up
-                //        position.y++;
-
-                //        //Stop pushing into object
-                //        velocity.y = 0;
-
-                //        isOnGround = true;
-                //    }
-                //}
             }
 
+            if (sameXLevel && position.y == entities[i].position_.y + entities[i].hitbox_.y + 1)
+            {
+                //Object is on ground
+                isOnGround = true;
+            }
         }
     }
 }

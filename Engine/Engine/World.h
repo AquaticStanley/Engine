@@ -17,7 +17,7 @@ const int WORLD_X_SPEED_LIMIT = 10;
 
 const int WORLD_Y_SPEED_LIMIT = 10;
 
-const int WORLD_GRAVITY_ACCELERATION = -1;
+const float WORLD_GRAVITY_ACCELERATION = -0.5;
 
 //Class definition
 class World

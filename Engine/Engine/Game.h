@@ -7,5 +7,7 @@
 //Functions
 void Execute();
 
+void CreateTestLevel(std::vector<GameObject> & gameObjects);
+
 
 #endif
