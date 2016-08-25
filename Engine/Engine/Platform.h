@@ -6,6 +6,8 @@
 #include "GraphicsComponent.h"
 #include "InputComponent.h"
 #include "PhysicsComponent.h"
+#include "GameObject.h"
+#include "World.h"
 
 class PlatformPhysicsComponent : public PhysicsComponent
 {
@@ -17,9 +19,14 @@ class PlatformGraphicsComponent : public GraphicsComponent
 {
 public:
     virtual void update(GameObject& object, Graphics& graphics);
+
+    PlatformGraphicsComponent(PlatformPhysicsComponent* physics) : physics_(physics) {}
+
+private:
+    PlatformPhysicsComponent* physics_;
 };
 
-class PlatformInputComponent : public GraphicsComponent
+class PlatformInputComponent : public InputComponent
 {
 public:
     virtual void update(GameObject& object);

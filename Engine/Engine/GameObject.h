@@ -13,9 +13,9 @@ class World;
 class GameObject
 {
 public:
-    sf::Vector2i position_;
-    sf::Vector2i velocity_;
-    sf::Vector2i hitbox_;
+    sf::Vector2f position_;
+    sf::Vector2f velocity_;
+    sf::Vector2f hitbox_;
 
     //Variable describing object's type
     EntityType::Type type_;
@@ -26,8 +26,8 @@ public:
     GameObject(InputComponent* input,
         PhysicsComponent* physics,
         GraphicsComponent* graphics,
-        sf::Vector2i position,
-        sf::Vector2i hitbox,
+        sf::Vector2f position,
+        sf::Vector2f hitbox,
         EntityType::Type type)
         : input_(input), physics_(physics), graphics_(graphics), position_(position), velocity_(0, 0), hitbox_(hitbox), type_(type) {
         toBeRemoved = false;

@@ -20,11 +20,11 @@ class GameObjectFactory
 {
 public:
     //Factory Methods
-    GameObject* createPlayer(sf::Vector2i position);
+    GameObject* createPlayer(sf::Vector2f position);
 
-    GameObject* createBlockman(sf::Vector2i position);
+    GameObject* createBlockman(sf::Vector2f position);
 
-    //GameObject* createPlatform(sf::Vector2i position);
+    GameObject* createPlatform(sf::Vector2f position, sf::Vector2f hitbox);
 };
 
 #endif

@@ -24,7 +24,9 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MathFunctions.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="World.cpp" />
@@ -39,6 +41,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />

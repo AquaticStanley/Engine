@@ -12,6 +12,16 @@
 #include "World.h"
 #include "EntityTypes.h"
 
+class PlayerInputComponent : public InputComponent
+{
+public:
+    virtual void update(GameObject& object);
+
+private:
+    const int WALK_ACCELERATION = 2;
+    const int IDLE_X_ACCELERATION = 2;
+};
+
 class PlayerPhysicsComponent : public PhysicsComponent
 {
 public:
@@ -32,16 +42,6 @@ public:
 
 private:
     PlayerPhysicsComponent* physics_;
-};
-
-
-class PlayerInputComponent : public InputComponent
-{
-public:
-    virtual void update(GameObject& object);
-
-private:
-    const int WALK_ACCELERATION = 1;
 };
 
 #endif

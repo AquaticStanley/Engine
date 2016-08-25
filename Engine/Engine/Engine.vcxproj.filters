@@ -45,6 +45,12 @@
     <ClCompile Include="Dimensions.cpp">
       <Filter>Helper Classes</Filter>
     </ClCompile>
+    <ClCompile Include="MathFunctions.cpp">
+      <Filter>Helper Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -84,6 +90,9 @@
       <Filter>Helper Classes</Filter>
     </ClInclude>
     <ClInclude Include="EntityTypes.h">
+      <Filter>Helper Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="MathFunctions.h">
       <Filter>Helper Classes</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,35 +1,6 @@
 #include "World.h"
 #include <iostream>
 
-void World::gameloop()
-{
-    //Variables for dealing with time and delta time
-    sf::Clock deltaClock;
-    double lag = 0.0;
-
-    //Object for graphic manipulation
-    Graphics* graphics = new Graphics();
-
-    while (true)
-    {
-        //Get delta time
-        sf::Time dt = deltaClock.restart();
-        lag += dt.asMilliseconds();
-
-        int i = 0;
-
-        processInput();
-        while (lag >= MS_PER_UPDATE)
-        {
-            updatePhysics();
-            lag -= MS_PER_UPDATE;
-        }
-
-        render(lag / MS_PER_UPDATE, *graphics);
-
-        std::cout << entities[0].velocity_.y << std::endl;
-    }
-}
 
 void World::processInput()
 {
@@ -49,40 +20,63 @@ void World::render(double frameProgress, Graphics graphics)
     }
 }
 
-void World::resolveCollision(sf::Vector2i hitbox, sf::Vector2i& position, sf::Vector2i& velocity, const EntityType::Type type)
+void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position, sf::Vector2f& velocity, const EntityType::Type type, bool& isOnGround)
 {
     //Check if space is occupied
     for (unsigned int i = 0; i < entities.size(); i++)
     {
         //Check to make sure type is unique (same types move through each other)
+        //Later on, change to also check if entity being examined is the same entity that is being passed in
         if (type != entities[i].type_)
         {
-            //Check all four sides of given entity to entity in array
-            bool x_overlap = !(position.x + hitbox.x < entities[i].position_.x ||
-                               position.x > entities[i].position_.x + entities[i].hitbox_.x);
-
-
-            bool y_overlap = !(position.y + hitbox.y < entities[i].position_.y ||
-                               position.y > entities[i].position_.y + entities[i].hitbox_.y);
-
-
             //Handle overlaps (Beta test this, very important. If suboptimal results, implement system  which finds which direction objects need to go to separate and move 5 pixels at a time)
-            if (x_overlap)
-            {
-                //Move back to original position
-                position.x -= velocity.x;
+            bool sameXLevel = valueInRange(entities[i].position_.x, position.x, position.x + hitbox.x) ||
+                              valueInRange(position.x, entities[i].position_.x, entities[i].position_.x + entities[i].hitbox_.x);
 
-                //Stop x-oriented movement
-                velocity.x = 0;
+            bool sameYLevel = valueInRange(entities[i].position_.y, position.y, position.y + hitbox.y) ||
+                              valueInRange(position.y, entities[i].position_.y, entities[i].position_.y + entities[i].hitbox_.y);
+
+            if (sameYLevel)
+            {
+                //Specified object's right side is clipping into left side of foreign object
+                if (!(position.x + hitbox.x < entities[i].position_.x))
+                {
+                    //Move to the left;
+                    position.x--;
+
+                    //Stop pushing into object
+                    velocity.x = 0;
+                }
+                //Specified object's left side is clipping into right side of foreign object
+                else if (!(position.x > entities[i].position_.x + entities[i].hitbox_.x))
+                {
+                    //Move to the right
+                    position.x++;
+
+                    //Stop pushing into object
+                    velocity.x = 0;
+                }
             }
 
-            if (y_overlap)
+            if (sameXLevel)
             {
-                //Move back to original position
-                position.y -= velocity.y;
+                //Specified object's top side is clipping into bottom side of foreign object
+                if (!(position.y + hitbox.y < entities[i].position_.y))
+                {
+                    //Stop pushing into object
+                    velocity.y = 0;
+                }
+                //Specified object's bottom side is clipping into top side of foreign object
+                else if (!(position.y > entities[i].position_.y + entities[i].hitbox_.y))
+                {
+                    //Move up
+                    position.y++;
 
-                //Stop y-oriented movement
-                velocity.y = 0;
+                    //Stop pushing into object
+                    velocity.y = 0;
+
+                    isOnGround = true;
+                }
             }
         }
     }

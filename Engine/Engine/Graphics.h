@@ -5,10 +5,19 @@
 
 #include "SFML\Graphics\Sprite.hpp"
 #include "SFML\Graphics.hpp"
+#include "SFML\Window\Window.hpp"
 
 class Graphics
 {
+public:
+    Graphics(sf::RenderWindow* window) : window_(window) {}
 
+    void draw(int x, int y);
+
+    void draw(sf::Vector2f position, sf::Vector2f hitbox);
+
+private:
+    sf::RenderWindow* window_;
 };
 
 #endif
