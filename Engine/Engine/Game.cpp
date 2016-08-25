@@ -97,5 +97,19 @@ void CreateTestLevel(std::vector<GameObject>& gameObjects)
     object = gameObjectFactory.createPlatform(startingPosition3, hitBox2);
 
     gameObjects.push_back(*object);
+
+    //Create floor
+    sf::Vector2f startingPosition4 = sf::Vector2f(100, 200);
+    sf::Vector2f hitBox3 = sf::Vector2f(500, 5);
+    object = gameObjectFactory.createPlatform(startingPosition4, hitBox3);
+
+    gameObjects.push_back(*object);
+
+    //Create ceiling
+    sf::Vector2f startingPosition5 = sf::Vector2f(150, 230);
+    sf::Vector2f hitBox4 = sf::Vector2f(300, 4);
+    object = gameObjectFactory.createPlatform(startingPosition5, hitBox4);
+
+    gameObjects.push_back(*object);
 }
 

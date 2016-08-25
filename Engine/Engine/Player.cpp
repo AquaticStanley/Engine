@@ -39,9 +39,6 @@ void PlayerInputComponent::update(GameObject & object)
 
 void PlayerPhysicsComponent::update(GameObject& object, World& world)
 {
-    //object.position_.x += object.velocity_.x;
-    //object.position_.y += object.velocity_.y;
-
     //Set Player's velocity due to acceleration from gravity
     if (!isOnGround)
     {
