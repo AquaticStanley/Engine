@@ -31,8 +31,6 @@ void PlayerInputComponent::update(GameObject & object)
     }
 }
 
-
-
 void PlayerPhysicsComponent::update(GameObject& object, World& world)
 {
     //object.position_.x += object.velocity_.x;
@@ -78,6 +76,6 @@ void PlayerPhysicsComponent::update(GameObject& object, World& world)
 
 void PlayerGraphicsComponent::update(GameObject & object, Graphics & graphics)
 {
-    graphics.draw(object.position_.x, object.position_.y);
+    graphics.draw(object.position_, object.hitbox_, sf::Color::Blue);
 }
 

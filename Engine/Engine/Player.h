@@ -18,8 +18,8 @@ public:
     virtual void update(GameObject& object);
 
 private:
-    const int WALK_ACCELERATION = 2;
-    const int IDLE_X_ACCELERATION = 2;
+    const int WALK_ACCELERATION = 5;
+    const int IDLE_X_ACCELERATION = 1;
 };
 
 class PlayerPhysicsComponent : public PhysicsComponent

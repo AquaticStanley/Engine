@@ -14,7 +14,7 @@ public:
 
     void draw(int x, int y);
 
-    void draw(sf::Vector2f position, sf::Vector2f hitbox);
+    void draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color);
 
 private:
     sf::RenderWindow* window_;

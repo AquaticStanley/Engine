@@ -9,11 +9,11 @@ void Graphics::draw(int x, int y)
     window_->draw(circle);
 }
 
-void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox)
+void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color)
 {
     sf::RectangleShape rectangle = sf::RectangleShape(hitbox);
     rectangle.setOrigin(0, rectangle.getSize().y);
-    rectangle.setFillColor(sf::Color::Green);
+    rectangle.setFillColor(color);
     rectangle.setPosition(position);
 
     window_->draw(rectangle);

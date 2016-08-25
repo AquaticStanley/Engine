@@ -35,6 +35,11 @@ void Execute()
     //Variables for dealing with game objects
     World world(gameObjects);
 
+    //First time render
+    window.clear(sf::Color::Black);
+    world.render(1.0, *graphics);
+    window.display();
+    
     while (window.isOpen())
     {
         sf::Event event;
