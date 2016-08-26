@@ -9,10 +9,6 @@
 #include "MathFunctions.h"
 
 //Constants
-const float MS_PER_UPDATE = 10.0;
-
-const int MAX_ENTITIES = 3000;
-
 const float WORLD_X_SPEED_LIMIT = 2.5;
 
 const float WORLD_Y_SPEED_LIMIT = 10;

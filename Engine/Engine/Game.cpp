@@ -41,7 +41,7 @@ void Execute()
 
     //Set zoom
     float zoomMultiplier = 1.5;
-    view.zoom(1/zoomMultiplier);
+    view.zoom(1 / zoomMultiplier);
     window.setView(view);
 
 
@@ -65,7 +65,7 @@ void Execute()
         //Track framerate
         if (framerateClock.getElapsedTime().asSeconds() >= 1)
         {
-            std::cout << "FPS: " << frameCount << std::endl;
+            //std::cout << "FPS: " << frameCount << std::endl;
             framerateClock.restart();
             frameCount = 0;
         }
@@ -92,9 +92,9 @@ void Execute()
         window.display();
 
         //Display information about certain physics entity
-        //std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
-        //std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
-        //std::cout << std::endl;
+        std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
+        std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
+        std::cout << std::endl;
     }
 }
 

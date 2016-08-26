@@ -48,11 +48,6 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                     //Was above object before collision
 
                     //Move up until no collision
-                    /*while (position.y <= entities[i].position_.y + entities[i].hitbox_.y)
-                    {
-                        position.y++;
-                    }*/
-
                     position.y = entities[i].position_.y + entities[i].hitbox_.y + 1;
 
                     //Stop pushing into object
@@ -64,10 +59,7 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                     //Was below object before collision
 
                     //Move down until no collision
-                    while (position.y + hitbox.y >= entities[i].position_.y)
-                    {
-                        position.y--;
-                    }
+                    position.y = entities[i].position_.y - hitbox.y - 1;
 
                     //Stop pushing into object
                     velocity.y = 0;
@@ -80,10 +72,7 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                         //Was to the right of object before collision
 
                         //Move to the right until no collision
-                        while (position.x <= entities[i].position_.x + entities[i].hitbox_.x)
-                        {
-                            position.x++;
-                        }
+                        position.x = entities[i].position_.x + entities[i].hitbox_.x + 1;
 
                         //Stop pushing into object
                         velocity.x = 0;
@@ -93,10 +82,7 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                         //Was to the left of object before collision
 
                         //Move to the left until no collision
-                        while (position.x + hitbox.x >= entities[i].position_.x)
-                        {
-                            position.x--;
-                        }
+                        position.x = entities[i].position_.x - hitbox.x - 1;
 
                         //Stop pushing into object
                         velocity.x = 0;
