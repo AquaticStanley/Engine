@@ -34,11 +34,11 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
         if (type != entities[i].type_)
         {
             //Handle overlaps (Beta test this, very important. If suboptimal results, implement system  which finds which direction objects need to go to separate and move 5 pixels at a time)
-            bool sameXLevel = valueInRange(entities[i].position_.x, position.x, position.x + hitbox.x) ||
-                valueInRange(position.x, entities[i].position_.x, entities[i].position_.x + entities[i].hitbox_.x);
+            bool sameXLevel = valueInRange(entities[i].position_.x, position.x, position.x + hitbox.x + 1) ||
+                valueInRange(position.x, entities[i].position_.x, entities[i].position_.x + entities[i].hitbox_.x + 1);
 
-            bool sameYLevel = valueInRange(entities[i].position_.y, position.y, position.y + hitbox.y) ||
-                valueInRange(position.y, entities[i].position_.y, entities[i].position_.y + entities[i].hitbox_.y);
+            bool sameYLevel = valueInRange(entities[i].position_.y, position.y, position.y + hitbox.y + 1) ||
+                valueInRange(position.y, entities[i].position_.y, entities[i].position_.y + entities[i].hitbox_.y + 1);
 
             if (sameXLevel && sameYLevel)
             {
@@ -89,6 +89,8 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                     }
                 }
             }
+
+            
 
             if (sameXLevel && position.y == entities[i].position_.y + entities[i].hitbox_.y + 1)
             {

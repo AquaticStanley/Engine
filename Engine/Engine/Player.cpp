@@ -4,12 +4,25 @@ void PlayerInputComponent::update(GameObject & object)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
     {
-        object.velocity_.x += WALK_ACCELERATION;
-        
+        if (physics_->isOnGround)
+        {
+            object.velocity_.x += WALK_ACCELERATION_GROUND;
+        }
+        else
+        {
+            object.velocity_.x += WALK_ACCELERATION_AIR;
+        }
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
     {
-        object.velocity_.x -= WALK_ACCELERATION;
+        if (physics_->isOnGround)
+        {
+            object.velocity_.x -= WALK_ACCELERATION_GROUND;
+        }
+        else
+        {
+            object.velocity_.x -= WALK_ACCELERATION_AIR;
+        }
     }
     //Neither right nor left are held down
     else
@@ -17,11 +30,25 @@ void PlayerInputComponent::update(GameObject & object)
         //Get direction of velocity
         if (object.velocity_.x > .5)
         {
-            object.velocity_.x -= IDLE_X_ACCELERATION;
+            if (physics_->isOnGround)
+            {
+                object.velocity_.x -= IDLE_X_ACCELERATION_GROUND;
+            }
+            else
+            {
+                object.velocity_.x -= IDLE_X_ACCELERATION_AIR;
+            }
         }
         else if (object.velocity_.x < -.5)
         {
-            object.velocity_.x += IDLE_X_ACCELERATION;
+            if (physics_->isOnGround)
+            {
+                object.velocity_.x += IDLE_X_ACCELERATION_GROUND;
+            }
+            else
+            {
+                object.velocity_.x += IDLE_X_ACCELERATION_AIR;
+            }
         }
         //Velocity is between -.5 and .5
         else

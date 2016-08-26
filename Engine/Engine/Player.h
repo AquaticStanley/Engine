@@ -31,8 +31,10 @@ public:
     PlayerInputComponent(PlayerPhysicsComponent* physics) : physics_(physics) {}
 
 private:
-    const float WALK_ACCELERATION = 0.5;
-    const float IDLE_X_ACCELERATION = 0.25;
+    const float WALK_ACCELERATION_GROUND = 0.5;
+    const float WALK_ACCELERATION_AIR = 0.25;
+    const float IDLE_X_ACCELERATION_GROUND = 0.25;
+    const float IDLE_X_ACCELERATION_AIR = 0.1;
     const float JUMP_VELOCITY = 2;
 
     PlayerPhysicsComponent* physics_;
