@@ -42,7 +42,7 @@ private:
 class PlayerGraphicsComponent : public GraphicsComponent
 {
 public:
-    virtual void update(GameObject& object, Graphics& graphics);
+    virtual void update(GameObject& object, Graphics& graphics, double frameProgress);
 
     PlayerGraphicsComponent(PlayerPhysicsComponent* physics) : physics_(physics)
     {

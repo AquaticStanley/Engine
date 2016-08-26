@@ -18,7 +18,7 @@ public:
 class PlatformGraphicsComponent : public GraphicsComponent
 {
 public:
-    virtual void update(GameObject& object, Graphics& graphics);
+    virtual void update(GameObject& object, Graphics& graphics, double frameProgress);
 
     PlatformGraphicsComponent(PlatformPhysicsComponent* physics) : physics_(physics) {}
 

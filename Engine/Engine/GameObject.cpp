@@ -14,5 +14,5 @@ void GameObject::updatePhysics(World & world)
 
 void GameObject::updateGraphics(World & world, Graphics & graphics, double frameProgress)
 {
-    graphics_->update(*this, graphics);
+    graphics_->update(*this, graphics, frameProgress);
 }

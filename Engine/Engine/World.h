@@ -9,7 +9,7 @@
 #include "MathFunctions.h"
 
 //Constants
-const int MS_PER_UPDATE = 16;
+const int MS_PER_UPDATE = 15;
 
 const int MAX_ENTITIES = 3000;
 

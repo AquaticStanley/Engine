@@ -30,12 +30,13 @@ void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color)
 void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Sprite sprite)
 {
     sprite.setOrigin(0, hitbox.y);
+    sf::Vector2f roundedPosition = sf::Vector2f(position.x + 0.5, position.y + 0.5);
 
     //Translate position
-    translatePosition(position, window_);
+    translatePosition(roundedPosition, window_);
 
     //Set Position
-    sprite.setPosition(position);
+    sprite.setPosition(roundedPosition);
 
     //Scale if necessary
     sprite.scale(hitbox.x / sprite.getTextureRect().width, hitbox.y / sprite.getTextureRect().height);

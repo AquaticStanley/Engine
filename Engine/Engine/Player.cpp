@@ -81,9 +81,10 @@ void PlayerPhysicsComponent::update(GameObject& object, World& world)
     world.resolveCollision(object.hitbox_, object.position_, object.velocity_, object.type_, isOnGround);
 }
 
-void PlayerGraphicsComponent::update(GameObject & object, Graphics & graphics)
+void PlayerGraphicsComponent::update(GameObject & object, Graphics & graphics, double frameProgress)
 {
-    //graphics.draw(object.position_, object.hitbox_, sf::Color::Blue);
-    graphics.draw(object.position_, object.hitbox_, STANDING_SPRITE);
+    sf::Vector2f predictedPosition = object.position_ + sf::Vector2f(object.velocity_.x * frameProgress, object.velocity_.y * frameProgress);
+
+    graphics.draw(predictedPosition, object.hitbox_, STANDING_SPRITE);
 }
 

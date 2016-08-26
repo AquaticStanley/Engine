@@ -14,6 +14,9 @@ void Execute()
     sf::RenderWindow window(sf::VideoMode(800, 600), "GameWindow", sf::Style::Close);
     window.setFramerateLimit(60);
 
+    
+
+
     //Variables for dealing with time and delta time
     sf::Clock deltaClock;
     double lag = 0.0;
@@ -28,6 +31,13 @@ void Execute()
 
     //Variables for dealing with game objects
     World world(gameObjects);
+
+    //Center camera on player
+    sf::View view = window.getDefaultView();
+    view.setCenter(sf::Vector2f(view.getSize().x * -2, view.getSize().y) - world.entities[0].position_);
+    //view.zoom(0.5f);
+    window.setView(view);
+
 
     //First time render
     window.clear(sf::Color::Black);
@@ -60,6 +70,9 @@ void Execute()
 
         window.clear(sf::Color::Black);
         world.render(lag / MS_PER_UPDATE, *graphics);
+
+        view.setCenter(sf::Vector2f(world.entities[0].position_.x * 2, view.getSize().y) - world.entities[0].position_);
+        window.setView(view);
         window.display();
 
         //Display information about certain physics entity
@@ -107,6 +120,13 @@ void CreateTestLevel(std::vector<GameObject>& gameObjects)
     sf::Vector2f startingPosition5 = sf::Vector2f(150, 250);
     sf::Vector2f hitBox4 = sf::Vector2f(300, 4);
     object = gameObjectFactory.createPlatform(startingPosition5, hitBox4);
+
+    gameObjects.push_back(*object);
+
+    //Create other wall
+    sf::Vector2f startingPosition6 = sf::Vector2f(600, 200);
+    sf::Vector2f hitBox5 = sf::Vector2f(400, 20);
+    object = gameObjectFactory.createPlatform(startingPosition6, hitBox5);
 
     gameObjects.push_back(*object);
 }
