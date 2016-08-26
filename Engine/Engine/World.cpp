@@ -48,10 +48,12 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                     //Was above object before collision
 
                     //Move up until no collision
-                    while (position.y <= entities[i].position_.y + entities[i].hitbox_.y)
+                    /*while (position.y <= entities[i].position_.y + entities[i].hitbox_.y)
                     {
                         position.y++;
-                    }
+                    }*/
+
+                    position.y = entities[i].position_.y + entities[i].hitbox_.y + 1;
 
                     //Stop pushing into object
                     velocity.y = 0;

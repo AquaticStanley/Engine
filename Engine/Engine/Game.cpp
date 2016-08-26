@@ -11,15 +11,18 @@
 void Execute()
 {
     //SFML Window Initialization
-    sf::RenderWindow window(sf::VideoMode(800, 600), "GameWindow", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(1200, 600), "GameWindow", sf::Style::Close);
     window.setFramerateLimit(60);
-
-    
-
 
     //Variables for dealing with time and delta time
     sf::Clock deltaClock;
     double lag = 0.0;
+    double lagLeftOver = 1.0;
+
+    //Variables for tracking framerate
+    sf::Clock framerateClock;
+    framerateClock.restart();
+    int frameCount = 0;
 
     //Object for graphic manipulation
     sf::RenderWindow* windowPointer = &window;
@@ -34,8 +37,8 @@ void Execute()
 
     //Center camera on player
     sf::View view = window.getDefaultView();
-    view.setCenter(sf::Vector2f(view.getSize().x * -2, view.getSize().y) - world.entities[0].position_);
     //view.zoom(0.5f);
+    view.setCenter(sf::Vector2f(view.getSize().x * -2, view.getSize().y) - world.entities[0].position_);
     window.setView(view);
 
 
@@ -43,7 +46,7 @@ void Execute()
     window.clear(sf::Color::Black);
     world.render(1.0, *graphics);
     window.display();
-    
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -55,6 +58,15 @@ void Execute()
                 window.close();
             }
         }
+
+        //Track framerate
+        if (framerateClock.getElapsedTime().asSeconds() >= 1)
+        {
+            std::cout << "FPS: " << frameCount << std::endl;
+            framerateClock.restart();
+            frameCount = 0;
+        }
+        frameCount++;
 
         //Get delta time
         sf::Time dt = deltaClock.restart();
@@ -69,16 +81,17 @@ void Execute()
         }
 
         window.clear(sf::Color::Black);
-        world.render(lag / MS_PER_UPDATE, *graphics);
+        world.render(lag / MS_PER_UPDATE + (1.0 - lagLeftOver), *graphics);
+        lagLeftOver = lag / MS_PER_UPDATE;
 
         view.setCenter(sf::Vector2f(world.entities[0].position_.x * 2, view.getSize().y) - world.entities[0].position_);
         window.setView(view);
         window.display();
 
         //Display information about certain physics entity
-        std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
-        std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
-        std::cout << std::endl;
+        //std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
+        //std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
+        //std::cout << std::endl;
 
         //i++;
     }

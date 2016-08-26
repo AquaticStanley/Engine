@@ -31,9 +31,9 @@ public:
     PlayerInputComponent(PlayerPhysicsComponent* physics) : physics_(physics) {}
 
 private:
-    const int WALK_ACCELERATION = 1;
-    const int IDLE_X_ACCELERATION = 1;
-    const int JUMP_VELOCITY = 10;
+    const float WALK_ACCELERATION = 1;
+    const float IDLE_X_ACCELERATION = 0.5;
+    const float JUMP_VELOCITY = 10;
 
     PlayerPhysicsComponent* physics_;
 };
@@ -50,10 +50,7 @@ public:
 
         STANDING_SPRITE.setTexture(STANDING_TEXTURE);
         STANDING_SPRITE.setTextureRect(sf::IntRect(0, 0, 15, 30));
-        
     }
-
-
 
 private:
     PlayerPhysicsComponent* physics_;

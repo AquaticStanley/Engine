@@ -13,11 +13,11 @@ const int MS_PER_UPDATE = 15;
 
 const int MAX_ENTITIES = 3000;
 
-const int WORLD_X_SPEED_LIMIT = 4;
+const float WORLD_X_SPEED_LIMIT = 4;
 
-const int WORLD_Y_SPEED_LIMIT = 10;
+const float WORLD_Y_SPEED_LIMIT = 10;
 
-const float WORLD_GRAVITY_ACCELERATION = -0.5;
+const float WORLD_GRAVITY_ACCELERATION = -0.2;
 
 //Class definition
 class World
