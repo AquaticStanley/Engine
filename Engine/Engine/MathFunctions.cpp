@@ -1,6 +1,6 @@
 #include "MathFunctions.h"
 
-bool valueInRange(int value, int min, int max)
+bool valueInRange(float value, float min, float max)
 {
     return (value >= min) && (value <= max);
 }

@@ -1,16 +1,16 @@
 #include "Graphics.h"
 
-//Note: Current version of this function results in a flipped position
-void Graphics::draw(int x, int y)
-{
-    sf::CircleShape circle = sf::CircleShape(10, 30);
-    circle.setFillColor(sf::Color::Green);
-
-    circle.setPosition(x, y);
-
-    window_->draw(circle);
-    return;
-}
+////Note: Current version of this function results in a flipped position
+//void Graphics::draw(int x, int y)
+//{
+//    sf::CircleShape circle = sf::CircleShape(10, 30);
+//    circle.setFillColor(sf::Color::Green);
+//
+//    circle.setPosition(x, y);
+//
+//    window_->draw(circle);
+//    return;
+//}
 
 void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color)
 {

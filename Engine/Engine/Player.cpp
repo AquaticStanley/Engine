@@ -15,15 +15,15 @@ void PlayerInputComponent::update(GameObject & object)
     else
     {
         //Get direction of velocity
-        if (object.velocity_.x > 2)
+        if (object.velocity_.x > .5)
         {
             object.velocity_.x -= IDLE_X_ACCELERATION;
         }
-        else if (object.velocity_.x < -2)
+        else if (object.velocity_.x < -.5)
         {
             object.velocity_.x += IDLE_X_ACCELERATION;
         }
-        //Velocity is between -2 and 2
+        //Velocity is between -.5 and .5
         else
         {
             object.velocity_.x = 0;

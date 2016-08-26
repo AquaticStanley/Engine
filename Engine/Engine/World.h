@@ -9,15 +9,15 @@
 #include "MathFunctions.h"
 
 //Constants
-const int MS_PER_UPDATE = 15;
+const float MS_PER_UPDATE = 10.0;
 
 const int MAX_ENTITIES = 3000;
 
-const float WORLD_X_SPEED_LIMIT = 4;
+const float WORLD_X_SPEED_LIMIT = 2.5;
 
 const float WORLD_Y_SPEED_LIMIT = 10;
 
-const float WORLD_GRAVITY_ACCELERATION = -0.2;
+const float WORLD_GRAVITY_ACCELERATION = -0.05;
 
 //Class definition
 class World

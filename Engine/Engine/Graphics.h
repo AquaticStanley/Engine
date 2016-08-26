@@ -12,7 +12,7 @@ class Graphics
 public:
     Graphics(sf::RenderWindow* window) : window_(window) {}
 
-    void draw(int x, int y);
+    //void draw(int x, int y);
 
     void draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color);
 

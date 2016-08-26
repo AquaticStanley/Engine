@@ -37,8 +37,11 @@ void Execute()
 
     //Center camera on player
     sf::View view = window.getDefaultView();
-    //view.zoom(0.5f);
     view.setCenter(sf::Vector2f(view.getSize().x * -2, view.getSize().y) - world.entities[0].position_);
+
+    //Set zoom
+    float zoomMultiplier = 1.5;
+    view.zoom(1/zoomMultiplier);
     window.setView(view);
 
 
@@ -81,10 +84,10 @@ void Execute()
         }
 
         window.clear(sf::Color::Black);
-        world.render(lag / MS_PER_UPDATE + (1.0 - lagLeftOver), *graphics);
+        world.render((lag / MS_PER_UPDATE) + (1.0 - lagLeftOver), *graphics);
         lagLeftOver = lag / MS_PER_UPDATE;
 
-        view.setCenter(sf::Vector2f(world.entities[0].position_.x * 2, view.getSize().y) - world.entities[0].position_);
+        view.setCenter(sf::Vector2f(world.entities[0].position_.x * 2, view.getSize().y * zoomMultiplier) - world.entities[0].position_);
         window.setView(view);
         window.display();
 
@@ -92,8 +95,6 @@ void Execute()
         //std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
         //std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
         //std::cout << std::endl;
-
-        //i++;
     }
 }
 
