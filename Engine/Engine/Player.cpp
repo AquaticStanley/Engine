@@ -83,6 +83,7 @@ void PlayerPhysicsComponent::update(GameObject& object, World& world)
 
 void PlayerGraphicsComponent::update(GameObject & object, Graphics & graphics)
 {
-    graphics.draw(object.position_, object.hitbox_, sf::Color::Blue);
+    //graphics.draw(object.position_, object.hitbox_, sf::Color::Blue);
+    graphics.draw(object.position_, object.hitbox_, STANDING_SPRITE);
 }
 

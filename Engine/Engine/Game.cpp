@@ -65,8 +65,6 @@ void Execute()
         //Display information about certain physics entity
         std::cout << "Object 1 Position: (" << world.entities[0].position_.x << ", " << world.entities[0].position_.y << ")\t";
         std::cout << "Object 1 Velocity: (" << world.entities[0].velocity_.x << ", " << world.entities[0].velocity_.y << ")\n";
-        std::cout << "Object 2 Position: (" << world.entities[1].position_.x << ", " << world.entities[1].position_.y << ")\t";
-        std::cout << "Object 2 Velocity: (" << world.entities[1].velocity_.x << ", " << world.entities[1].velocity_.y << ")\n\n";
         std::cout << std::endl;
 
         //i++;
@@ -106,7 +104,7 @@ void CreateTestLevel(std::vector<GameObject>& gameObjects)
     gameObjects.push_back(*object);
 
     //Create ceiling
-    sf::Vector2f startingPosition5 = sf::Vector2f(150, 230);
+    sf::Vector2f startingPosition5 = sf::Vector2f(150, 250);
     sf::Vector2f hitBox4 = sf::Vector2f(300, 4);
     object = gameObjectFactory.createPlatform(startingPosition5, hitBox4);
 

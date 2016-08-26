@@ -9,20 +9,23 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Helper Classes">
+      <UniqueIdentifier>{da820e4f-a872-4d79-9eb8-9f7ed34e9048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Helper Classes">
-      <UniqueIdentifier>{da820e4f-a872-4d79-9eb8-9f7ed34e9048}</UniqueIdentifier>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2afb62a5-e663-4ad2-855f-49d7a1737662}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Blockman.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
@@ -40,7 +43,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Platform.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClCompile>
     <ClCompile Include="Dimensions.cpp">
       <Filter>Helper Classes</Filter>
@@ -78,13 +81,13 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Blockman.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClInclude>
     <ClInclude Include="Platform.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Class Files</Filter>
     </ClInclude>
     <ClInclude Include="Dimensions.h">
       <Filter>Helper Classes</Filter>
@@ -95,5 +98,10 @@
     <ClInclude Include="MathFunctions.h">
       <Filter>Helper Classes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="grillStandingSprite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

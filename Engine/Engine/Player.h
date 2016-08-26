@@ -44,10 +44,21 @@ class PlayerGraphicsComponent : public GraphicsComponent
 public:
     virtual void update(GameObject& object, Graphics& graphics);
 
-    PlayerGraphicsComponent(PlayerPhysicsComponent* physics) : physics_(physics) {}
+    PlayerGraphicsComponent(PlayerPhysicsComponent* physics) : physics_(physics)
+    {
+        bool loaded=STANDING_TEXTURE.loadFromFile("grillStandingSprite.png");
+
+        STANDING_SPRITE.setTexture(STANDING_TEXTURE);
+        STANDING_SPRITE.setTextureRect(sf::IntRect(0, 0, 15, 30));
+        
+    }
+
+
 
 private:
     PlayerPhysicsComponent* physics_;
+    sf::Texture STANDING_TEXTURE;
+    sf::Sprite STANDING_SPRITE;
 };
 
 #endif

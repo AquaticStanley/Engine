@@ -13,7 +13,7 @@ const int MS_PER_UPDATE = 16;
 
 const int MAX_ENTITIES = 3000;
 
-const int WORLD_X_SPEED_LIMIT = 10;
+const int WORLD_X_SPEED_LIMIT = 4;
 
 const int WORLD_Y_SPEED_LIMIT = 10;
 

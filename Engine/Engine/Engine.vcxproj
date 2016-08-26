@@ -47,6 +47,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="grillStandingSprite.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A6CB6C4C-A096-4A37-A07D-E4A2CD003C6C}</ProjectGuid>
     <RootNamespace>Engine</RootNamespace>

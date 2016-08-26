@@ -5,7 +5,7 @@ void Graphics::draw(int x, int y)
 {
     sf::CircleShape circle = sf::CircleShape(10, 30);
     circle.setFillColor(sf::Color::Green);
-    
+
     circle.setPosition(x, y);
 
     window_->draw(circle);
@@ -24,6 +24,23 @@ void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color)
     rectangle.setPosition(position);
 
     window_->draw(rectangle);
+    return;
+}
+
+void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Sprite sprite)
+{
+    sprite.setOrigin(0, hitbox.y);
+
+    //Translate position
+    translatePosition(position, window_);
+
+    //Set Position
+    sprite.setPosition(position);
+
+    //Scale if necessary
+    sprite.scale(hitbox.x / sprite.getTextureRect().width, hitbox.y / sprite.getTextureRect().height);
+
+    window_->draw(sprite);
     return;
 }
 
