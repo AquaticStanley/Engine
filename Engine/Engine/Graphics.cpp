@@ -30,7 +30,7 @@ void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Color color)
 void Graphics::draw(sf::Vector2f position, sf::Vector2f hitbox, sf::Sprite sprite)
 {
     sprite.setOrigin(0, hitbox.y);
-    sf::Vector2f roundedPosition = sf::Vector2f(position.x + 0.5, position.y + 0.5);
+    sf::Vector2f roundedPosition = sf::Vector2f(position.x - 0.5, position.y - 0.5);
 
     //Translate position
     translatePosition(roundedPosition, window_);
@@ -49,4 +49,9 @@ void Graphics::translatePosition(sf::Vector2f& position, sf::RenderWindow* windo
 {
     position.y = window->getSize().y - position.y;
     return;
+}
+
+void Graphics::translatePosition(sf::Vector2f& position, sf::View* view)
+{
+
 }

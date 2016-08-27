@@ -28,6 +28,8 @@ public:
     void resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position, sf::Vector2f
         & velocity, const EntityType::Type type, bool& isOnGround);
 
+    bool canPassThrough(const EntityType::Type type1, const EntityType::Type type2);
+
     World(std::vector<GameObject> entitiesInLevel);
 
     std::vector<GameObject> entities;

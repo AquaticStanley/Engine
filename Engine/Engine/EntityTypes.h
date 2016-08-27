@@ -3,7 +3,7 @@
 
 struct EntityType
 {
-    enum Type{Player, Enemy, NPC, Object};
+    enum Type{Player, Enemy, NPC, Object, Projectile, Scenery, Particle};
 };
 
 #endif

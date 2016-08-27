@@ -114,4 +114,3 @@ void PlayerGraphicsComponent::update(GameObject & object, Graphics & graphics, d
 
     graphics.draw(predictedPosition, object.hitbox_, STANDING_SPRITE);
 }
-

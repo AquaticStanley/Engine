@@ -32,6 +32,12 @@ void Execute()
     std::vector<GameObject> gameObjects;
     CreateTestLevel(gameObjects);
 
+    //Set background
+    /*sf::Texture backgroundTexture;
+    backgroundTexture.loadFromFile("background1.jpg");
+    sf::Sprite backgroundSprite = sf::Sprite(backgroundTexture);
+    window.draw(backgroundSprite);*/
+
     //Variables for dealing with game objects
     World world(gameObjects);
 
@@ -84,6 +90,7 @@ void Execute()
         }
 
         window.clear(sf::Color::Black);
+        //window.draw(backgroundSprite);
         world.render((lag / MS_PER_UPDATE) + (1.0 - lagLeftOver), *graphics);
         lagLeftOver = lag / MS_PER_UPDATE;
 
@@ -102,6 +109,8 @@ void CreateTestLevel(std::vector<GameObject>& gameObjects)
 {
     //Create Test Level Objects
     GameObjectFactory gameObjectFactory;
+
+    //Create Background
 
     //Create Player
     sf::Vector2f startingPosition1 = sf::Vector2f(300, 600);

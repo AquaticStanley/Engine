@@ -31,7 +31,7 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
     {
         //Check to make sure type is unique (same types move through each other)
         //Later on, change to also check if entity being examined is the same entity that is being passed in
-        if (type != entities[i].type_)
+        if (!canPassThrough(type, entities[i].type_))
         {
             //Handle overlaps (Beta test this, very important. If suboptimal results, implement system  which finds which direction objects need to go to separate and move 5 pixels at a time)
             bool sameXLevel = valueInRange(entities[i].position_.x, position.x, position.x + hitbox.x + 1) ||
@@ -90,7 +90,7 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                 }
             }
 
-            
+
 
             if (sameXLevel && position.y == entities[i].position_.y + entities[i].hitbox_.y + 1)
             {
@@ -98,6 +98,18 @@ void World::resolveCollision(const sf::Vector2f& hitbox, sf::Vector2f& position,
                 isOnGround = true;
             }
         }
+    }
+}
+
+bool World::canPassThrough(const EntityType::Type type1, const EntityType::Type type2)
+{
+    if (type1 == type2 || type2 == EntityType::Type::Particle || type2 == EntityType::Type::Scenery)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
