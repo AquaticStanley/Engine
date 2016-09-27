@@ -152,5 +152,12 @@ void CreateTestLevel(std::vector<GameObject>& gameObjects)
     object = gameObjectFactory.createPlatform(startingPosition6, hitBox5);
 
     gameObjects.push_back(*object);
+
+    //Create floor to jump to with a gap
+    sf::Vector2f startingPosition7 = sf::Vector2f(1100, 200);
+    sf::Vector2f hitBox6 = sf::Vector2f(400, 20);
+    object = gameObjectFactory.createPlatform(startingPosition7, hitBox6);
+
+    gameObjects.push_back(*object);
 }
 

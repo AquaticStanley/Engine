@@ -8,7 +8,7 @@ void PlatformPhysicsComponent::update(GameObject & object, World & world)
 
 void PlatformGraphicsComponent::update(GameObject & object, Graphics & graphics, double frameProgress)
 {
-    graphics.draw(object.position_, object.hitbox_, sf::Color::Green);
+    graphics.draw(object.position_, object.hitbox_, sf::Color::White);
 }
 
 void PlatformInputComponent::update(GameObject & object)
