@@ -10,9 +10,13 @@
 //Main Game Loop
 void Execute()
 {
+    //Variables for frame progression
+    int FRAME_LIMIT = 60;
+    float MS_PER_UPDATE = 10;
+
     //SFML Window Initialization
     sf::RenderWindow window(sf::VideoMode(1200, 600), "GameWindow", sf::Style::Close);
-    window.setFramerateLimit(60);
+    window.setVerticalSyncEnabled(true);
 
     //Variables for dealing with time and delta time
     sf::Clock deltaClock;
